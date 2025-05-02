@@ -1,10 +1,10 @@
 body {
-  background-color: #fffaef !important;
+  background-color: #0C6DFD !important;
 }
 
 .container {
   min-height: 100vh;
-  background-color: #fffaef !important;
+  background-color: #0C6DFD !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,4 +34,17 @@ body {
 
 .d-none {
   display: none;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.final-headline {
+  font-size: 38px;
+  margin-bottom: 32px;
 }

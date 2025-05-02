@@ -1,20 +1,33 @@
 let currentQuestion = 0;
+let rightQuestions = 0;
+
 
 function init() {
-    document.getElementById('all_questions').innerHTML = questions.length;
+    document.getElementById('all_questions').innerHTML = questions.length; // gesamtzanzahl der fragen anzeigen
     showQuestion();
-    
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
 
-    document.getElementById('question_number').innerHTML = currentQuestion + 1; // aktuelle frage nummer anzeigen
-    document.getElementById('question_text').innerHTML = question.question;
-    document.getElementById('answer_1').innerHTML = question.answer_1;
-    document.getElementById('answer_2').innerHTML = question.answer_2;
-    document.getElementById('answer_3').innerHTML = question.answer_3;
-    document.getElementById('answer_4').innerHTML = question.answer_4;
+    // show end screen
+    if ((currentQuestion) >= questions.length) {
+
+        document.getElementById('question_body').classList.add('d-none');
+        document.getElementById('end_screen').classList.remove('d-none');
+        document.getElementById('amount_of_questions').innerHTML = questions.length;
+        document.getElementById('amount_of_right_questions').innerHTML = rightQuestions;
+        document.getElementById('header_image').src = './assets/icons/cup.png';
+
+    } else { // show question
+        let question = questions[currentQuestion];
+        
+        document.getElementById('question_number').innerHTML = currentQuestion + 1; // aktuelle frage nummer anzeigen
+        document.getElementById('question_text').innerHTML = question.question;
+        document.getElementById('answer_1').innerHTML = question.answer_1;
+        document.getElementById('answer_2').innerHTML = question.answer_2;
+        document.getElementById('answer_3').innerHTML = question.answer_3;
+        document.getElementById('answer_4').innerHTML = question.answer_4;
+    }
 }
 
 function answer(selection) {
@@ -24,14 +37,12 @@ function answer(selection) {
 
     if (selectedQuestionNumber == question.right_answer) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
-
+        rightQuestions++; // variable um ein erhöhen, wenn die frage richtig beantwortet wurde
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
-
     document.getElementById('netxt_button').disabled = false;
-
 }
 
 function nextQuestion() {
@@ -39,7 +50,6 @@ function nextQuestion() {
     document.getElementById('netxt_button').disabled = true; // button wieder deaktivieren
     resetAnswerButtons(); // alle antwort buttons resetten
     showQuestion(); // fragen nochmal neu laden
-
 }
 
 function resetAnswerButtons() {
