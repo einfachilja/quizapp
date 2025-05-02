@@ -19,8 +19,14 @@ function showQuestion() {
         document.getElementById('header_image').src = './assets/icons/cup.png';
 
     } else { // show question
+        let percent = (currentQuestion + 1) / questions.length;
+        percent = Math.round(percent * 100);
+
+        document.getElementById('progress_bar').innerHTML = `${percent} %`;
+        document.getElementById('progress_bar').style = `width: ${percent}%`;
+
         let question = questions[currentQuestion];
-        
+
         document.getElementById('question_number').innerHTML = currentQuestion + 1; // aktuelle frage nummer anzeigen
         document.getElementById('question_text').innerHTML = question.question;
         document.getElementById('answer_1').innerHTML = question.answer_1;

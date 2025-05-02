@@ -15,7 +15,7 @@
 
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">QuizApp</span>
+            <span class="navbar-brand mb-0 h1">Quiz App</span>
         </div>
     </nav>
 
@@ -23,9 +23,15 @@
         <div class="card quiz-card">
             <img id="header_image" src="./assets/img/pencil.jpg" class="card-img-top" alt="...">
 
+            <div class="progress">
+                <div id="progress_bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemax="100">
+                </div>
+            </div>
+
             <div class="d-none" id="end_screen">
                 <div class="text-center final-headline">Quiz beendet!</div>
-                <div class="text-center">Du hast <b id="amount_of_right_questions"></b> von <b id="amount_of_questions"></b> Fragen richtig beantwortet.</div>
+                <div class="text-center">Du hast <b id="amount_of_right_questions"></b> von <b
+                        id="amount_of_questions"></b> Fragen richtig beantwortet.</div>
             </div>
 
             <div class="card-body" id="question_body">
