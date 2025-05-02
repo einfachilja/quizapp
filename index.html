@@ -26,7 +26,7 @@
                 <h5 class="card-title" id="question_text">Frage</h5>
 
                 <!-- parameter i.d.F. answer_1 wird mitgegeben, damit man weiß auf welchen button geglickt wurde -->
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')"> 
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
                     <div class="card-body" id="answer_1">
                         Antwort
                     </div>
@@ -49,7 +49,7 @@
                 <div class="question-footer">
                     <span><b id="current_question">1</b> von <b id="all_questions"></b> Fragen</span>
 
-                    <button class="btn btn-dark" onclick="nextQuestion()">Nächste Frage</button>
+                    <button class="btn btn-dark" disabled id="netxt_button">Nächste Frage</button>
                 </div>
 
             </div>

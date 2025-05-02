@@ -16,27 +16,18 @@ function showQuestion() {
 }
 
 function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1);
+    let idOfRightAnswer = `answer_${question.right_answer}`;
 
-    let rightAnswer = questions[currentQuestion].right_answer;
-    console.log(rightAnswer);
-    
-    
-    if (rightAnswer === selection) {
-        console.log('Glückwunsch');
-        document.getElementById(selection).classList.add('richtig');
-        
-    } else {
-        
-        console.log('Falsch!');
-        document.getElementById(selection).classList.add('falsch');
-    }
-}
+    if (selectedQuestionNumber == question.right_answer) {
+        document.getElementById(selection).parentNode.classList.add('bg-success');
 
-function nextQuestion() {
-    if (currentQuestion == 5) {
-        currentQuestion = 0;
     } else {
-        currentQuestion++;
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
-    showQuestion();
+
+    document.getElementById('netxt_button').disabled = false;
+
 }
