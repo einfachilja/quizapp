@@ -1,6 +1,7 @@
 let currentQuestion = 0;
 let rightQuestions = 0;
-
+let AUDIO_SUCCESS = new Audio('./audio/success.wav');
+let AUDIO_FAIL = new Audio('./audio/fail.wav');
 
 function init() {
     document.getElementById('all_questions').innerHTML = questions.length; // gesamtzanzahl der fragen anzeigen
@@ -44,9 +45,11 @@ function answer(selection) {
     if (selectedQuestionNumber == question.right_answer) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         rightQuestions++; // variable um ein erhöhen, wenn die frage richtig beantwortet wurde
+        AUDIO_SUCCESS.play();
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        AUDIO_FAIL.play();
     }
     document.getElementById('netxt_button').disabled = false;
 }
