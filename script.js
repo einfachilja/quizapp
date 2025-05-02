@@ -3,11 +3,13 @@ let currentQuestion = 0;
 function init() {
     document.getElementById('all_questions').innerHTML = questions.length;
     showQuestion();
+    
 }
 
 function showQuestion() {
     let question = questions[currentQuestion];
 
+    document.getElementById('question_number').innerHTML = currentQuestion + 1; // aktuelle frage nummer anzeigen
     document.getElementById('question_text').innerHTML = question.question;
     document.getElementById('answer_1').innerHTML = question.answer_1;
     document.getElementById('answer_2').innerHTML = question.answer_2;
@@ -37,6 +39,7 @@ function nextQuestion() {
     document.getElementById('netxt_button').disabled = true; // button wieder deaktivieren
     resetAnswerButtons(); // alle antwort buttons resetten
     showQuestion(); // fragen nochmal neu laden
+
 }
 
 function resetAnswerButtons() {
