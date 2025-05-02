@@ -68,3 +68,12 @@ function resetAnswerButtons() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
 }
+
+function restartGame() {
+    document.getElementById('header_image').src = './assets/img/pencil.jpg'; // bild austauschen
+    currentQuestion = 0; // zurücksetzen auf erste frage
+    rightQuestions = 0; // zurücksetzen auf 0 richtige antworten
+    document.getElementById('question_body').classList.remove('d-none'); // start screen einblenden
+    document.getElementById('end_screen').classList.add('d-none'); // end screen ausblenden
+    init(); // alles neu laden
+}
