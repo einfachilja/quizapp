@@ -31,3 +31,8 @@ function answer(selection) {
     document.getElementById('netxt_button').disabled = false;
 
 }
+
+function nextQuestion() {
+    currentQuestion++; // z.b. von 0 auf 1
+    showQuestion(); // fragen nochmal neu laden
+}
