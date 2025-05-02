@@ -34,5 +34,18 @@ function answer(selection) {
 
 function nextQuestion() {
     currentQuestion++; // z.b. von 0 auf 1
+    document.getElementById('netxt_button').disabled = true; // button wieder deaktivieren
+    resetAnswerButtons(); // alle antwort buttons resetten
     showQuestion(); // fragen nochmal neu laden
+}
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
 }
